@@ -61,13 +61,14 @@ router.post('/login', (req, res) => {
                 return res.status(422).json({ error: "Invalid Email or password" })
             }
 
-            if(savedUser.status === 'Pending'){
-                return res.status(422).json({message: 'User is registered but not Verified'})
-            }
-
             bcrypt.compare(password, savedUser.password)
                 .then(doMatch => {
                     if (doMatch) {
+                        
+                        if(savedUser.status === 'Pending'){
+                            return res.status(422).json({message: 'User is registered but not Verified'})
+                        }
+
                         const token = jwt.sign({ _id: savedUser._id }, JWT_SECRET)
                         res.json({ message:"User successfully signin", token, user: savedUser })
                     }
