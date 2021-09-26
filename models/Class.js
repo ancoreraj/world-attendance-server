@@ -48,4 +48,4 @@ const classSchema = new mongoose.Schema({
     }
 })
 
-mongoose.model("Class", classSchema)
+module.exports = mongoose.model('Class', classSchema)

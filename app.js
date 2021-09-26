@@ -28,13 +28,14 @@ mongoose.connection.on('error', (err) => {
     console.log("err connecting", err)
 })
 
-//Requiring Model Schemas
-require('./models/User')
-require('./models/Class')
-require('./models/Period')
+require("./models/User");
+require("./models/Class");
+require("./models/Period");
 
-//Requiring Oauth routes
+//Requiring routes
+app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth'))
+app.use('/class', require('./routes/class'))
 
 
 const PORT = process.env.PORT || 5000

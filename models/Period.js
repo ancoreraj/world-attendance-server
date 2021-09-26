@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const { stringify } = require('uuid')
 
 const periodSchema = new mongoose.Schema({
     class: {
@@ -20,4 +19,4 @@ const periodSchema = new mongoose.Schema({
     }
 })
 
-mongoose.model("Class", classSchema)
+module.exports = mongoose.model('Period', periodSchema)
