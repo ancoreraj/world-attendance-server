@@ -60,6 +60,11 @@ router.post('/login', (req, res) => {
             if (!savedUser) {
                 return res.status(422).json({ error: "Invalid Email or password" })
             }
+
+            if(savedUser.status === 'Pending'){
+                return res.status(422).json({message: 'User is registered but not Verified'})
+            }
+
             bcrypt.compare(password, savedUser.password)
                 .then(doMatch => {
                     if (doMatch) {
