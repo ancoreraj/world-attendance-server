@@ -9,7 +9,6 @@ const ensureAuth = require('./../middleware/requireLoginJwt')
 const { v4: uuidv4 } = require('uuid');
 const sendConfirmationEmail = require('./../middleware/nodemailer/accountConfirmationMail')
 
-
 router.get('/protected', ensureAuth, (req, res) => {
     res.send('Hello world')
 })
@@ -64,7 +63,7 @@ router.post('/login', (req, res) => {
             bcrypt.compare(password, savedUser.password)
                 .then(doMatch => {
                     if (doMatch) {
-                        
+
                         if(savedUser.status === 'Pending'){
                             return res.status(422).json({message: 'User is registered but not Verified'})
                         }
