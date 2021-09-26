@@ -88,7 +88,6 @@ router.get('/confirmAccount/:confirmationCode', (req, res) => {
         if (!user) {
             return res.json({ message: "Wrong Confirmation code" })
         }
-
         user.status = "Active";
         user.save((err) => {
             if (err) {

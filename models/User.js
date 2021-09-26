@@ -22,6 +22,22 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    rollNo: {
+        type: String,
+    },
+    classCreated: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Class',
+        default: []
+    }],
+    classJoined: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Class',
+        default: []
+    }],
+    createdAt: {
+        type: Date,
+    },
 })
 
 mongoose.model("User", userSchema)

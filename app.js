@@ -29,7 +29,9 @@ mongoose.connection.on('error', (err) => {
 })
 
 //Requiring Model Schemas
-require('./models/user')
+require('./models/User')
+require('./models/Class')
+require('./models/Period')
 
 //Requiring Oauth routes
 app.use('/auth', require('./routes/auth'))

@@ -19,6 +19,7 @@ module.exports = (req, res, next) => {
             if(userdata.status === "Pending"){
                 return res.status(401).json({ error: "You account is registered but not Verified" })
             }
+            req.user = userdata
             next()
         })
     })
