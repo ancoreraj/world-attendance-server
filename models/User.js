@@ -25,11 +25,6 @@ const userSchema = new mongoose.Schema({
     rollNo: {
         type: String,
     },
-    classCreated: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Class',
-        default: []
-    }],
     classJoined: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Class',

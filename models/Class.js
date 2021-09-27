@@ -18,7 +18,7 @@ const classSchema = new mongoose.Schema({
     },
     linkStatus: {
         type: String,
-        enum: ['Pending', 'Active'],
+        enum: ['Inactive', 'Active'],
         default: 'Active'
     },
     name: {
